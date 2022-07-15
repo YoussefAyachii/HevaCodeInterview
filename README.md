@@ -27,14 +27,23 @@ with sqlite3.connect("data/movies.sqlite") as co:
         ).fetchall()
 ```
 
-Néanmoins, nous encourageons le ou la candidat·e à utiliser les outils de son choix (exemples : `pandas`, `sqlalchemy`, `jupyter`), tant que le travail est documenté pour la reproductibilité (`requirements.txt`).
+Néanmoins, nous encourageons le ou la candidat·e à utiliser les outils de son choix (exemples : `pandas`, `sqlalchemy`, `jupyter`), tant que le travail est documenté pour la reproductibilité (définition d'un `requirements.txt` à envoyer avec le code source et les résultats).
+
+Par ailleurs, nous attendons que les résultats soient inclus dans un fichier de rapport généré par le code source.
+La mise en forme peut être très simple :
+
+```python
+nb_films = 10
+with open("results.txt", "a", encoding="utf8") as f:
+    f.write(f"{nb_films} films figurent dans la base de données.")
+```
 
 ### Évaluation
 
 Les fichiers sources en retour seront évalués selon les modalités suivantes :
 
-- **Résultats** : les résultats sont-ils conformes aux attentes ?
 - **Organisation** : comment le problème a-t-il été abordé ?
+- **Résultats** : les résultats sont-ils conformes aux attentes ?
 - **Clean code** : le code source est-il de qualité, bien construit et organisé ? Le travail est-il reproductible et maintenable ?
 
 ## Tâches
