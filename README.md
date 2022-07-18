@@ -40,11 +40,14 @@ with open("results.txt", "a", encoding="utf8") as f:
 
 ### Évaluation
 
-Les fichiers sources en retour seront évalués selon les modalités suivantes :
+L'enjeu de ces exercices est de mettre en valeur votre façon de raisonnner et de vous organiser. Nous serons particulièrement intéressé par les strucutres de programmation que vous mettrez en place. Nous accordons, au sein de notre équipe, une grande importance au fait de pouvoir reprendre le travail d'un collaborateur. La reproductibilité et la facilité de prise en main de votre travail sera également un critère d'évaluation important.  
+En revanche, votre connaissance fine de la grammaire Python, si elle est intéressante, ne sera pas un critère déterminant de ces exercices.
+
+Ainsi, les fichiers sources en retour seront évalués selon les modalités suivantes :
 
 - **Organisation** : comment le problème a-t-il été abordé ?
-- **Résultats** : les résultats sont-ils conformes aux attentes ?
 - **Clean code** : le code source est-il de qualité, bien construit et organisé ? Le travail est-il reproductible et maintenable ?
+- **Résultats** : les résultats sont-ils conformes aux attentes ?
 
 ## Tâches
 
