@@ -40,7 +40,7 @@ with open("results.txt", "a", encoding="utf8") as f:
 
 ### Évaluation
 
-L'enjeu de ces exercices est de mettre en valeur votre façon de raisonnner et de vous organiser. Nous serons particulièrement intéressé par les strucutres de programmation que vous mettrez en place. Nous accordons, au sein de notre équipe, une grande importance au fait de pouvoir reprendre le travail d'un collaborateur. La reproductibilité et la facilité de prise en main de votre travail sera également un critère d'évaluation important.  
+L'enjeu de ces exercices est de mettre en valeur votre façon de raisonnner et de vous organiser. Nous serons particulièrement intéressés par les strucutres de programmation que vous mettrez en place. Nous accordons, au sein de notre équipe, une grande importance au fait de pouvoir reprendre le travail d'un collaborateur. La reproductibilité et la facilité de prise en main de votre travail sera également un critère d'évaluation important.  
 En revanche, votre connaissance fine de la grammaire Python, si elle est intéressante, ne sera pas un critère déterminant de ces exercices.
 
 Ainsi, les fichiers sources en retour seront évalués selon les modalités suivantes :
