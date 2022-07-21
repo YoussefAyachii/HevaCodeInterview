@@ -66,7 +66,7 @@ Ainsi, les fichiers sources en retour seront évalués selon les modalités suiv
 
 - 2.1 Afin de mettre en place un certain modèle statistique, nous devons transformer la note `rating` en deux modalités : l'utilisateur a-t-il aimé ou pas le film ?
     Créer une nouvelle colonne `liked` dans la table `ratings` avec les valeurs suivantes : `0` pour les notes [0-6] et `1` pour les notes [7-10].
-- 2.2 Quels sont les genres les mieux notés par les utilisateurs ? Nous souhaitons obtenir le **top 10** des genres de films aimés par les utilisateurs (à l'aide de la nouvelle colonne `liked`).
+- 2.2 Quels sont les genres les mieux notés par les utilisateurs ? Nous souhaitons obtenir le **top 10** des combinaisons de genres de films aimés par les utilisateurs (à l'aide de la nouvelle colonne `liked`).
 
 ### Sélections avancées
 
