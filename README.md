@@ -66,16 +66,16 @@ Ainsi, les fichiers sources en retour seront évalués selon les modalités suiv
 
 - 2.1 Afin de mettre en place un certain modèle statistique, nous devons transformer la note `rating` en deux modalités : l'utilisateur a-t-il aimé ou pas le film ?
     Créer une nouvelle colonne `liked` dans la table `ratings` avec les valeurs suivantes : `0` pour les notes [0-6] et `1` pour les notes [7-10].
-- 2.2 Quels sont les genres les mieux notés par les utilisateurs ? Nous souhaitons obtenir le **top 10** des combinaisons de genres de films aimés par les utilisateurs (à l'aide de la nouvelle colonne `liked`).
+- 2.2 Quels sont les genres les mieux notés par les utilisateurs ? Nous souhaitons obtenir le **top 10** des genres de films aimés par les utilisateurs.
 
 ### Sélections avancées
 
 - 3.1 Quels sont les titres des films les plus aimés des internautes ?  
-    Nous cherchons les **10** films les mieux notés en moyenne par les utilisateurs, avec un minimum de **5** notations pour que la mesure soit pertinente.
+    Nous cherchons les **10** films les mieux notés en moyenne par les utilisateurs, avec un minimum de **5** notations pour que la mesure soit pertinente. Proposez un système de classement qui vous semble pertinent.
 - 3.2 Quel est le film le plus noté durant l'année 2020 ?  
     **Note** : la colonne `rating_timestamp` est fournie dans la base sous forme d'[heure Unix](https://fr.wikipedia.org/wiki/Heure_Unix).
 
 ### Gestion des données
 
 - 4.1 Afin de retrouver plus rapidement les notes d'un utilisateur en particulier, nous souhaitons mettre en place un index sur les id utilisateurs.
-    Constatez-vous une différence de performances en recherchant les évaluations données par l'internaute `255` ?
+    Constatez-vous une différence de performances en recherchant les évaluations données par l'internaute `255` ? Justifiez votre méthodologie.
