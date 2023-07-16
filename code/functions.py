@@ -1,8 +1,9 @@
-"""Functions needed to manipulate the ../code/movies.sqlite database."""
+"""Functions needed to manipulate the ../data/movies.sqlite database."""
 
 import time
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 import datetime
 
 
@@ -25,6 +26,30 @@ def get_hist(x, xlabel, ylabel, plot_title, saving_path):
     plt.savefig(saving_path)
     # close the plot to free up memory
     plt.close()
+
+
+def get_ratings_frequency_table_query(ratings_vec):
+    """Builds a query to create a ratings frequency table in SQL.
+
+    Args:
+        ratings_vec (list): A list of ratings values.
+
+    Returns:
+        str: The query string to create the ratings frequency table.
+    """
+    # min and max of ratings
+    min_ratings, max_ratings = np.min(ratings_vec), np.max(ratings_vec)
+    # build the query to create the columns of the frequency table
+    query = ""
+    for note in range(min_ratings, max_ratings + 1):
+        query += f"ROUND((SUM(CASE WHEN rating = {note} THEN 1 ELSE 0 END) * 100.0 / COUNT(rating)), 2) AS prop_{note}"
+        if note != max_ratings:
+            query += ","
+
+    # build the ratings frequency table query
+    ratings_freq_tab_query = f"SELECT {query} FROM ratings"
+
+    return ratings_freq_tab_query
 
 
 def get_rating_per_gender(gender_combin_with_ratings_tab):
