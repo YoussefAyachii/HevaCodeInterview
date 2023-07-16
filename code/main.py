@@ -7,8 +7,9 @@ C. REPORT GENERATION: generating the report (see ../results.txt)
 
 
 import sqlite3
-from time import time
+import matplotlib.pyplot as plt
 
+from time import time
 from functions import (get_rating_per_gender, get_hist,
                        convert_to_unix_time, get_ratings_frequency_table_query)
 
@@ -101,7 +102,7 @@ search_without_index_query = "SELECT * FROM ratings WHERE user_id = 255"
 
 # B. QUERIES EXECUTION
 
-with sqlite3.connect("../data/movies.sqlite") as co:
+with sqlite3.connect("./data/movies.sqlite") as co:
     # define cursor object for db modifications
     cursor_obj = co.cursor()
 
@@ -119,7 +120,7 @@ with sqlite3.connect("../data/movies.sqlite") as co:
             xlabel="notes",
             ylabel="reccurence",
             plot_title="Distribution des notations des films dans la database movies",
-            saving_path="../figures/hist_notes.png")
+            saving_path="./figures/hist_notes.png")
 
     # 1.4 get rating frequency table
     # building query to create the columns of the frequency tab
@@ -180,7 +181,7 @@ with sqlite3.connect("../data/movies.sqlite") as co:
 
 # C. REPORT GENERATION
 
-with open("../results.txt", "w", encoding="utf8") as f:
+with open("./results.txt", "w", encoding="utf8") as f:
     # report title
     f.write("=== Résultats répondant aux énoncés du README.md === \n")
     # 1.1 nb of movies

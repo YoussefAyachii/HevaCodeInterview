@@ -55,8 +55,8 @@
 Notre stratégie consiste à comparer les temps des calcul de chaquene des deux méthodes.
 Pour ce faire, nous enregistrons le temps initial (t0), puis on exécute la commande de recherche et 
 on enregistre par la suite le temps final (tf). Le temps de calcul pour une méthode donnée est donc tf - t0.
-Le temps de calcul enregistrée pour la recherche sans index est de 7.10e-05.
-Le temps de calcul enregistrée pour la recherche avec index est de 2.29e-05.La recherche par index a une meilleure performance en terme de temps de calcul.
+Le temps de calcul enregistrée pour la recherche sans index est de 8.03e-05.
+Le temps de calcul enregistrée pour la recherche avec index est de 2.10e-05.La recherche par index a une meilleure performance en terme de temps de calcul.
 
 Remarque: Pour mesurer le temps de calcul, nous avons développé la fonction query_execution_computation_time().
 Cependant, il y a une différence entre les résultats obtenus avec et sans l'utilisation de cette fonction.
