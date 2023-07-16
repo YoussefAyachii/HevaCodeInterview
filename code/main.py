@@ -184,15 +184,17 @@ with sqlite3.connect("./data/movies.sqlite") as co:
 with open("./results.txt", "w", encoding="utf8") as f:
     # report title
     f.write("=== Résultats répondant aux énoncés du README.md === \n")
+    # introduction
+    f.write("\nLe présent fichier a été généré par l'exécution du fichier code/main.py.\n")
     # 1.1 nb of movies
-    f.write(f"\n 1.1 {nb_films} films figurent dans la base de données.\n")
+    f.write(f"\n1.1 {nb_films} films figurent dans la base de données.\n")
     # 1.2 nb of users 
-    f.write(f"\n 1.2 {nb_users} users figurent dans la base de données.\n")
+    f.write(f"\n1.2 {nb_users} users figurent dans la base de données.\n")
     # 1.3 distribution of ratings
-    f.write("\n 1.3 la distribution des notes est representée par un histogramme "+
+    f.write("\n1.3 la distribution des notes est representée par un histogramme "+
             "disponnible selon le chemin suivant: figures/hist_notes.png \n")
     # 1.4 frequency table for ratings
-    f.write("\n 1.4 la répartition des notes dans la base de donnée est la suivante: \n")
+    f.write("\n1.4 la répartition des notes dans la base de donnée est la suivante: \n")
     # frequency table column name
     f.write(f"|note|frequence| \n")
     for i, note_freq in enumerate(ratings_freq_vec):
@@ -201,21 +203,21 @@ with open("./results.txt", "w", encoding="utf8") as f:
         tmp_note_freq = ratings_freq_vec[i]
         f.write(f"| {tmp_note} | {tmp_note_freq}| \n")
     # 2.1
-    f.write("\n 2.1 La colonne liked a été rajoutée dans la table ratings avec les valeurs suivantes: \n" +
+    f.write("\n2.1 La colonne liked a été rajoutée dans la table ratings avec les valeurs suivantes: \n" +
             "- 0 pour les notes [0-6] \n- 1 pour les notes [7-10]. \n")
     # 2.2
-    f.write("\n 2.2 le top 10 des genres les mieux notés en moyenne dans la database: \n")
+    f.write("\n2.2 le top 10 des genres les mieux notés en moyenne dans la database: \n")
     # intializing the table
     f.write(f"|rank|genre|\n")
     # filling the table
     for i, tmp_gender in enumerate(top10_genders_list):
         f.write(f"| {i + 1} | {tmp_gender} | \n")
     # 3.1
-    f.write("\n 3.1 les 10 films les plus aimés par les internautes sont:\n")
+    f.write("\n3.1 les 10 films les plus aimés par les internautes sont:\n")
     for film in top10_movies_list:
         f.write(f"| {film} |\n")
     # 3.2
-    f.write(f"\n 3.2 le film le plus noté durant l'année 2020 est: {best_rated_movie_in_2020}.\n")
+    f.write(f"\n3.2 le film le plus noté durant l'année 2020 est: {best_rated_movie_in_2020}.\n")
     # 4.1
     f.write(f"""
 4.1 Nous voudrions comparer les performances entre la recherche par les id ou les index.
@@ -234,4 +236,4 @@ Le temps de calcul enregistrée pour la recherche avec index est de {perf_index_
 Remarque: Pour mesurer le temps de calcul, nous avons développé la fonction query_execution_computation_time().
 Cependant, il y a une différence entre les résultats obtenus avec et sans l'utilisation de cette fonction.
 Cela est probablement dû au temps supplémentaire ajouté pour l'exécution de la commande à l'intérieur de la fonction.
-Par conséquent, nous avons choisi de ne prendre en compte que les temps de calcul calculés sans utiliser notre fonction.""")
+Par conséquent, nous avons choisi de ne prendre en compte que les temps de calcul calculés sans utiliser notre fonction.\n""")
