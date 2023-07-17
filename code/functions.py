@@ -10,12 +10,15 @@ import datetime
 def get_hist(x, xlabel, ylabel, plot_title, saving_path):
     """Generate a histogram and save it as a png file
 
-    args:
+    Args:
         x (list): variable to explore.
         xlabel (str): label for the x-axis.
         ylabel (str): label for the y-axis.
         plot_title (str): title of the histogram.
         saving_path (str): path to save the generated histogram.
+    
+    Returns:
+        None
     """
 
     plt.figure()
@@ -150,3 +153,32 @@ def query_execution_computation_time(query, sqlite3_connect_obj,
     if rounded:
         comp_time = "{:.{}e}".format(comp_time, nb_val_after_comas) 
     return comp_time
+
+def write_row_by_row_tab(file_obj, col1, col2, col1_name, col2_name):
+    """
+    Writes a table with two columns, row by row, into the specified file object.
+
+    Args:
+        file_obj (file object): The file object to write the table into.
+        col1 (list): The values of the first column.
+        col2 (list): The values of the second column.
+        col1_name (str): The name of the first column.
+        col2_name (str): The name of the second column.
+
+    Raises:
+        AssertionError: If the lengths of col1 and col2 are not the same.
+
+    Returns:
+        None
+    """
+    # verify col1 and col2 are of the same length
+    assert len(col1) == len(col2), "columns are not of the same length"
+    # tab initialization: column name
+    nb_rows = len(col1)
+    # first row: column names
+    file_obj.write(f"|{col1_name}|{col2_name}|\n")
+    for i in range(nb_rows):
+        # add note and its frequency as a new row in the table
+        tmp_col1_value = col1[i]
+        tmp_col2_value = col2[i]
+        file_obj.write(f"| {tmp_col1_value} | {tmp_col2_value} | \n")

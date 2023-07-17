@@ -10,8 +10,8 @@ import sqlite3
 import matplotlib.pyplot as plt
 
 from time import time
-from functions import (get_rating_per_gender, get_hist,
-                       convert_to_unix_time, get_ratings_frequency_table_query)
+from functions import (get_rating_per_gender, get_hist, convert_to_unix_time,
+                       get_ratings_frequency_table_query, write_row_by_row_tab)
 
 
 # A. QUERIES
@@ -195,37 +195,38 @@ with open("./results.txt", "w", encoding="utf8") as f:
             "disponnible selon le chemin suivant: figures/hist_notes.png \n")
     # 1.4 frequency table for ratings
     f.write("\n1.4 la répartition des notes dans la base de donnée est la suivante: \n")
-    # frequency table column name
-    f.write(f"|note|frequence| \n")
-    for i, note_freq in enumerate(ratings_freq_vec):
-        # add note and its frequency as a new row in the table
-        tmp_note = i
-        tmp_note_freq = ratings_freq_vec[i]
-        f.write(f"| {tmp_note} | {tmp_note_freq}| \n")
-    # 2.1
+    # frequency table
+    notes_list = [num for num in range(len(ratings_freq_vec))]
+    write_row_by_row_tab(file_obj=f,
+                         col1=notes_list,
+                         col2=ratings_freq_vec,
+                         col1_name="note",
+                         col2_name="frequence")
+    # 2.1 add column named 'liked' in ratings tab
     f.write("\n2.1 La colonne liked a été rajoutée dans la table ratings avec les valeurs suivantes: \n" +
             "- 0 pour les notes [0-6] \n- 1 pour les notes [7-10]. \n")
-    # 2.2
+    # 2.2 get best rated movie genders
     f.write("\n2.2 le top 10 des genres les mieux notés en moyenne dans la database: \n")
-    # intializing the table
-    f.write(f"|rank|genre|\n")
-    # filling the table
-    for i, tmp_gender in enumerate(top10_genders_list):
-        f.write(f"| {i + 1} | {tmp_gender} | \n")
-    # 3.1
+    ranks_list = [rank for rank in range(len(top10_genders_list))]
+    write_row_by_row_tab(file_obj=f,
+                         col1=ranks_list,
+                         col2=top10_genders_list,
+                         col1_name="rank",
+                         col2_name="genre")
+    # 3.1 top 10 most liked movies in the whole database
     f.write("\n3.1 les 10 films les plus aimés par les internautes sont:\n")
     for film in top10_movies_list:
         f.write(f"| {film} |\n")
-    # 3.2
+    # 3.2 top 10 most liked movies in 2020
     f.write(f"\n3.2 le film le plus noté durant l'année 2020 est: {best_rated_movie_in_2020}.\n")
-    # 4.1
+    # 4.1 comparing performance of searching with and without index
     f.write(f"""
 4.1 Nous voudrions comparer les performances entre la recherche par les id ou les index.
 Notre stratégie consiste à comparer les temps des calcul de chaquene des deux méthodes.
 Pour ce faire, nous enregistrons le temps initial (t0), puis on exécute la commande de recherche et 
 on enregistre par la suite le temps final (tf). Le temps de calcul pour une méthode donnée est donc tf - t0.
 Le temps de calcul enregistrée pour la recherche sans index est de {perf_classic_search}.
-Le temps de calcul enregistrée pour la recherche avec index est de {perf_index_search}.""")
+Le temps de calcul enregistrée pour la recherche avec index est de {perf_index_search}.\n""")
     if perf_classic_search > perf_index_search:
         f.write("La recherche par index a une meilleure performance en terme de temps de calcul.\n")
     elif perf_classic_search < perf_index_search:
